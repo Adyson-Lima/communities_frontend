@@ -20,4 +20,8 @@ describe('Testes da tela Communities', () => {
     expect(screen.getByTestId('mylink')).toBeInTheDocument();
   });
 
+  it('Existe tabela em Communities?', () => {
+    expect(screen.getByTestId('mytable')).toBeInTheDocument();
+  });
+
 });
