@@ -22,6 +22,16 @@ export default function Communities(){
     }
   }
 
+  // delete, exclui um elemento na api
+  async function deleteCommunity(id){
+    try {
+      await api.delete(`api/v1/communities/${id}`,{});
+      setCommunities(my_communities.filter(community => community.id !== id));
+    } catch (error) {
+      alert('erro ao excluir');      
+    }
+  }
+
   return(
 
     <div data-testid="mycard" className="card border-primary" style={{marginTop: '20px'}} >
@@ -55,7 +65,8 @@ export default function Communities(){
                   onClick={() => updateCommunity(community.id)}>Editar</button>
 
                   <button data-testid="mybtn2" type="button"
-                  className="btn btn-outline-danger" style={{margin: '2px'}}>Excluir</button>
+                  className="btn btn-outline-danger" style={{margin: '2px'}}
+                  onClick={() => deleteCommunity(community.id)}>Excluir</button>
 
                 </td>
               </tr>
